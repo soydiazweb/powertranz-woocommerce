@@ -1,0 +1,132 @@
+/**
+ * Estilos del area de administracion.
+ */
+
+.wc-powertranz-plans {
+	margin-bottom: 8px;
+}
+
+.wc-powertranz-plans th {
+	font-size: 11px;
+	line-height: 1.4;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+}
+
+.wc-powertranz-plans input[type="text"],
+.wc-powertranz-plans input[type="password"],
+.wc-powertranz-plans input[type="number"] {
+	width: 100%;
+	min-width: 70px;
+	font-size: 12px;
+	padding: 3px 6px;
+}
+
+.wc-powertranz-plans .pt-col-cuotas,
+.wc-powertranz-plans .pt-col-min_amount {
+	width: 76px;
+}
+
+.wc-powertranz-plans .pt-col-actions {
+	width: 34px;
+}
+
+.wc-powertranz-plans .pt-remove-plan {
+	color: #b32d2e;
+	line-height: 1;
+	padding: 0 6px;
+}
+
+table.powertranz-summary,
+table.powertranz-audit {
+	margin: 0 0 14px;
+}
+
+table.powertranz-summary th {
+	width: 220px;
+	text-align: left;
+}
+
+table.powertranz-summary code,
+table.powertranz-audit code {
+	font-size: 11px;
+	background: transparent;
+	padding: 0;
+}
+
+table.powertranz-audit td {
+	font-size: 12px;
+	vertical-align: top;
+}
+
+table.powertranz-audit tr.powertranz-ok td:first-child {
+	box-shadow: inset 3px 0 0 #46b450;
+}
+
+p.powertranz-hint {
+	margin: 6px 0 0;
+	color: #646970;
+	font-size: 12px;
+	font-style: italic;
+}
+
+/* Panel de tarjetas de prueba */
+
+.powertranz-test-cards-panel {
+	margin: 20px 0 0;
+	padding: 12px 16px;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-left: 4px solid #72aee6;
+	border-radius: 2px;
+}
+
+.powertranz-test-cards-panel > summary {
+	cursor: pointer;
+	font-size: 13px;
+}
+
+.powertranz-test-cards-panel h4 {
+	margin: 18px 0 6px;
+}
+
+ul.powertranz-test-notes {
+	margin: 12px 0 4px 18px;
+	list-style: disc;
+	font-size: 12px;
+	color: #50575e;
+}
+
+table.powertranz-test-cards {
+	font-size: 12px;
+}
+
+table.powertranz-test-cards th {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+}
+
+table.powertranz-test-cards td {
+	vertical-align: top;
+}
+
+table.powertranz-test-cards code.powertranz-pan {
+	font-size: 12px;
+	font-variant-numeric: tabular-nums;
+	user-select: all;
+	white-space: nowrap;
+}
+
+/* Guia de operaciones del pedido */
+
+ul.powertranz-operations {
+	margin: 6px 0 8px 18px;
+	list-style: disc;
+	font-size: 12px;
+	line-height: 1.6;
+}
+
+ul.powertranz-operations strong {
+	font-weight: 600;
+}
