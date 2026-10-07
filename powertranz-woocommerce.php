@@ -3,7 +3,7 @@
  * Plugin Name:          PowerTranz para WooCommerce
  * Plugin URI:           https://www.soydiaz.com
  * Description:          Pasarela de pagos First Atlantic Commerce (PowerTranz) para WooCommerce: 3-D Secure EMV 2.x mediante SPI, Apple Pay en la Web y cuotas BAC Credomatic. Registra cada transaccion en el pedido y en los logs de WooCommerce.
- * Version:              1.0.0
+ * Version:              1.0.1
  * Author:               Jonathan Diaz
  * Author URI:           https://www.soydiaz.com
  * License:              GPL-2.0-or-later
@@ -20,7 +20,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'WC_POWERTRANZ_VERSION', '1.0.0' );
+define( 'WC_POWERTRANZ_VERSION', '1.0.1' );
 define( 'WC_POWERTRANZ_FILE', __FILE__ );
 define( 'WC_POWERTRANZ_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WC_POWERTRANZ_URL', plugin_dir_url( __FILE__ ) );

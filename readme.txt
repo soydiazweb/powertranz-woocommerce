@@ -8,7 +8,7 @@ Tested up to: 6.7
 Requires PHP: 7.4
 WC requires at least: 7.0
 WC tested up to: 9.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,9 @@ No. Nunca se persiste el PAN completo ni el CVV. En el pedido solo quedan la
 marca, los cuatro ultimos digitos y la caducidad.
 
 == Changelog ==
+
+= 1.0.1 =
+* El motivo del rechazo se guarda como aviso de WooCommerce al volver de 3-D Secure: se muestra en "Pagar pedido" o en el checkout si la tienda redirige ahi, una sola vez.
 
 = 1.0.0 =
 * Version inicial.

@@ -91,8 +91,9 @@ final class WC_PowerTranz {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 		add_action( 'woocommerce_blocks_loaded', array( $this, 'register_blocks_support' ) );
 
-		// Muestra el motivo del ultimo rechazo al reintentar el pago.
-		add_action( 'before_woocommerce_pay', array( $this, 'maybe_show_last_error' ) );
+		// Motivo del ultimo rechazo como aviso de WooCommerce al volver a la
+		// pagina de pago (se muestra ahi o en el checkout si la tienda redirige).
+		add_action( 'template_redirect', array( $this, 'maybe_show_last_error' ), 1 );
 
 		// Resultado visible del pago y vaciado del carrito al confirmar.
 		foreach ( array( 'powertranz_cc', 'powertranz_applepay' ) as $gateway_id ) {
@@ -247,13 +248,20 @@ final class WC_PowerTranz {
 	}
 
 	/**
-	 * Muestra en la pagina de pago del pedido el motivo del ultimo rechazo.
+	 * Convierte el motivo del ultimo rechazo en un aviso de WooCommerce cuando
+	 * el cliente vuelve a la pagina de pago del pedido.
 	 *
 	 * El resultado de 3-D Secure llega en una peticion de origen cruzado sin
-	 * cookies, por lo que el aviso no puede guardarse en la sesion: se
-	 * persiste en el pedido y se consume aqui una sola vez.
+	 * cookies, por lo que el aviso no puede guardarse en la sesion en ese
+	 * momento: se persiste en el pedido y se pasa a la sesion aqui (peticion
+	 * normal del navegador, con cookies), una sola vez. Al quedar en la sesion
+	 * se muestra en "Pagar pedido" o en el checkout si la tienda redirige ahi.
 	 */
 	public function maybe_show_last_error() {
+		if ( ! function_exists( 'is_wc_endpoint_url' ) || ! is_wc_endpoint_url( 'order-pay' ) || ! WC()->session ) {
+			return;
+		}
+
 		$order_id = absint( get_query_var( 'order-pay' ) );
 
 		if ( ! $order_id ) {
@@ -283,7 +291,9 @@ final class WC_PowerTranz {
 		$order->delete_meta_data( '_powertranz_last_error' );
 		$order->save();
 
-		wc_print_notice( $error, 'error' );
+		if ( ! wc_has_notice( $error, 'error' ) ) {
+			wc_add_notice( $error, 'error' );
+		}
 	}
 
 	/**
