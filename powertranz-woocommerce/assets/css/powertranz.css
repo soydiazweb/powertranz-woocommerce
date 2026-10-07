@@ -1,0 +1,347 @@
+/**
+ * Estilos del checkout.
+ */
+
+.powertranz-brands {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin: 14px 0 0;
+	padding: 0;
+	list-style: none;
+	align-items: center;
+}
+
+.powertranz-brands li,
+.powertranz-seals li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: 0;
+}
+
+.powertranz-brands li::before,
+.powertranz-brands li::marker,
+.powertranz-seals li::before,
+.powertranz-seals li::marker {
+	content: none;
+}
+
+.powertranz-brand {
+	border: 1px solid rgba( 0, 0, 0, 0.1 );
+	border-radius: 4px;
+	background: #fff;
+	transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.powertranz-brand img {
+	display: block;
+	width: 44px;
+	height: auto;
+}
+
+.powertranz-brand .powertranz-brand-text {
+	display: block;
+	padding: 3px 8px;
+	font-size: 11px;
+	line-height: 1.6;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: #555;
+}
+
+/* Solo se atenua cuando ya se sabe que marca es. */
+.powertranz-brands.has-detected .powertranz-brand {
+	opacity: 0.4;
+}
+
+.powertranz-brands.has-detected .powertranz-brand.is-active,
+.powertranz-brand.is-active {
+	opacity: 1;
+	border-color: #1e73be;
+	box-shadow: 0 0 0 1px #1e73be;
+}
+
+/* Sellos del adquirente y de la pasarela */
+
+.powertranz-seals {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+	margin: 10px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.powertranz-seals img {
+	display: block;
+	height: 34px;
+	width: auto;
+	max-width: 100%;
+}
+
+@media (max-width: 480px) {
+	.powertranz-seals {
+		gap: 8px;
+	}
+
+	.powertranz-seals img {
+		height: 28px;
+	}
+}
+
+/* Banda unica de logos suministrada por el adquirente */
+
+.powertranz-logo-strip {
+	margin: 0 0 14px;
+}
+
+.powertranz-logo-strip img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.powertranz-logo-strip--footer {
+	margin: 14px 0 0;
+}
+
+/* Contacto de atencion al cliente */
+
+.powertranz-support {
+	margin: 10px 0 0;
+	font-size: 0.8125em;
+	color: #555;
+}
+
+.powertranz-support-hours {
+	color: #777;
+}
+
+.powertranz-field-help {
+	display: block;
+	margin-top: 4px;
+	font-size: 0.75em;
+	color: #777;
+}
+
+.powertranz-installments-row select,
+.powertranz-blocks-form select {
+	width: 100%;
+}
+
+.powertranz-test-hint {
+	margin: 8px 0 0;
+	color: #666;
+}
+
+.powertranz-card-number,
+.powertranz-card-expiry,
+.powertranz-card-cvc {
+	font-variant-numeric: tabular-nums;
+	letter-spacing: 0.04em;
+}
+
+/* Checkout por bloques */
+
+.powertranz-blocks-form {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	padding-top: 4px;
+}
+
+.powertranz-blocks-row {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.powertranz-blocks-row label {
+	font-size: 0.875em;
+}
+
+.powertranz-blocks-row input,
+.powertranz-blocks-row select {
+	width: 100%;
+	padding: 0.6em 0.75em;
+	border: 1px solid rgba( 0, 0, 0, 0.25 );
+	border-radius: 4px;
+	font: inherit;
+	background: #fff;
+	color: inherit;
+}
+
+.powertranz-blocks-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
+}
+
+/* Apple Pay */
+
+.powertranz-applepay-wrap {
+	padding-top: 6px;
+}
+
+.powertranz-applepay-button {
+	min-height: 44px;
+	cursor: pointer;
+}
+
+.powertranz-applepay-button apple-pay-button {
+	--apple-pay-button-width: 100%;
+	--apple-pay-button-height: 44px;
+	--apple-pay-button-border-radius: 6px;
+	display: block;
+	width: 100%;
+}
+
+/* Respaldo cuando el navegador no expone <apple-pay-button>. */
+.powertranz-applepay-button--css {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 6px;
+	background: #000 url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='25' viewBox='0 0 60 25'%3E%3Ctext x='30' y='18' font-family='-apple-system,Helvetica,Arial' font-size='16' fill='%23fff' text-anchor='middle'%3E%EF%A3%BF Pay%3C/text%3E%3C/svg%3E" ) center center no-repeat;
+	background-size: auto 60%;
+	border: 1px solid #000;
+}
+
+.powertranz-applepay-button--css[data-applied-style="white"],
+.powertranz-applepay-button--css[data-applied-style="white-outline"] {
+	background-color: #fff;
+	background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='25' viewBox='0 0 60 25'%3E%3Ctext x='30' y='18' font-family='-apple-system,Helvetica,Arial' font-size='16' fill='%23000' text-anchor='middle'%3E%EF%A3%BF Pay%3C/text%3E%3C/svg%3E" );
+	border-color: #d2d2d7;
+}
+
+.powertranz-applepay-message {
+	margin: 8px 0 0;
+	font-size: 0.875em;
+	color: #555;
+}
+
+.powertranz-applepay-message.powertranz-error {
+	color: #b32d2e;
+}
+
+/* Ayuda de tarjetas de prueba en el checkout */
+
+details.powertranz-test-hint {
+	margin: 10px 0 0;
+	padding: 8px 10px;
+	border: 1px dashed rgba( 0, 0, 0, 0.2 );
+	border-radius: 4px;
+	font-size: 0.8125em;
+	color: #555;
+}
+
+details.powertranz-test-hint > summary {
+	cursor: pointer;
+	font-weight: 600;
+}
+
+details.powertranz-test-hint table {
+	width: 100%;
+	margin: 8px 0 0;
+	border: 0;
+}
+
+details.powertranz-test-hint td {
+	padding: 2px 6px 2px 0;
+	border: 0;
+	vertical-align: top;
+}
+
+details.powertranz-test-hint code {
+	font-variant-numeric: tabular-nums;
+	user-select: all;
+	white-space: nowrap;
+	background: transparent;
+	padding: 0;
+}
+
+details.powertranz-test-hint p {
+	margin: 6px 0 0;
+}
+
+/* Resultado del pago en la pagina de confirmacion */
+
+.powertranz-result {
+	margin: 0 0 1.5em;
+	padding: 1em 1.25em;
+	border: 1px solid #dcdcde;
+	border-left-width: 4px;
+	border-radius: 4px;
+	background: #fff;
+}
+
+.powertranz-result--approved {
+	border-left-color: #1e8e3e;
+}
+
+.powertranz-result--declined {
+	border-left-color: #b32d2e;
+}
+
+.powertranz-result__status {
+	margin: 0 0 0.5em;
+	font-size: 1.05em;
+}
+
+.powertranz-result__badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 22px;
+	height: 22px;
+	margin-right: 6px;
+	border-radius: 50%;
+	color: #fff;
+	font-size: 13px;
+	line-height: 1;
+	vertical-align: middle;
+}
+
+.powertranz-result--approved .powertranz-result__badge {
+	background: #1e8e3e;
+}
+
+.powertranz-result--declined .powertranz-result__badge {
+	background: #b32d2e;
+}
+
+.powertranz-result__reason {
+	margin: 0 0 0.5em;
+	font-size: 0.9em;
+	color: #50575e;
+}
+
+.powertranz-result__details {
+	display: grid;
+	grid-template-columns: repeat( auto-fit, minmax( 180px, 1fr ) );
+	gap: 4px 16px;
+	margin: 0.75em 0 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0.875em;
+}
+
+.powertranz-result__details li {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	margin: 0;
+	padding: 3px 0;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.powertranz-result__details span {
+	color: #646970;
+}
+
+.powertranz-result__details strong {
+	font-variant-numeric: tabular-nums;
+	text-align: right;
+}
